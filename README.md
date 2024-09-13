@@ -1,2 +1,2 @@
 # Java-Python
-Языки Java и Pyhton - 3 курс
+Языки Java и Python - 3 курс
