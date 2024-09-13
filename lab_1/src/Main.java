@@ -1,5 +1,6 @@
 import java.util.Objects;
 import java.util.Scanner;
+import package1.DoublyEvenNumber;
 
 public class Main {
     public static void task_1(Scanner in) {
@@ -44,21 +45,33 @@ public class Main {
             int step = in.nextInt();
 
             switch (direction) {
-                case "восток":
-                    current_coord[0] += step;
-                    break;
-                case "запад":
-                    current_coord[0] -= step;
-                    break;
-                case "север":
-                    current_coord[1] += step;
-                    break;
-                case "юг":
-                    current_coord[1] -= step;
-                    break;
+                case "восток" -> current_coord[0] += step;
+                case "запад" -> current_coord[0] -= step;
+                case "север" -> current_coord[1] += step;
+                case "юг" -> current_coord[1] -= step;
             }
         }
         System.out.println(2); // кротчайший путь всегда будет составлять 2 шага
+    }
+
+    public static void task_4(Scanner in) {
+        int road = 0;
+        int limit = 0;
+        int roads_number = in.nextInt();
+        for (int current_road = 0; current_road < roads_number; current_road++) {
+            int tunnels_number = in.nextInt();
+            int minimal_road_height = Integer.MAX_VALUE;
+            for (int tunnel = 0; tunnel < tunnels_number; tunnel++) {
+                int tunnel_height = in.nextInt();
+                if (tunnel_height < minimal_road_height)
+                    minimal_road_height = tunnel_height;
+            }
+            if (limit < minimal_road_height) {
+                limit = minimal_road_height;
+                road = current_road;
+            }
+        }
+        System.out.printf("%d %d", road + 1, limit);
     }
 
     public static void main(String[] args) {
@@ -69,5 +82,11 @@ public class Main {
         task_2(in);
         System.out.println("3. Ищем клад");
         task_3(in);
+        System.out.println("4. Логистический максимин");
+        task_4(in);
+        System.out.println("5. Дважды четное число");
+        DoublyEvenNumber number = new DoublyEvenNumber();
+        number.setNumber();
+        System.out.println(number.isDoublyEven());
     }
 }
