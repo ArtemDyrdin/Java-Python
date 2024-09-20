@@ -3,7 +3,9 @@ import java.util.Scanner;
 import package1.DoublyEvenNumber;
 
 public class Main {
-    public static void task_1(Scanner in) {
+    static Scanner in = new Scanner(System.in);
+
+    public static void task_1() {
         int n = in.nextInt();
         int step = 0;
 
@@ -18,7 +20,7 @@ public class Main {
         System.out.println(step);
     }
 
-    public static void task_2(Scanner in) {
+    public static void task_2() {
         int n = in.nextInt();
         int result = 0;
         boolean plus = true;
@@ -32,7 +34,7 @@ public class Main {
         System.out.println(result);
     }
 
-    public static void task_3(Scanner in) {
+    public static void task_3() {
         int[] current_coord = {0, 0};
         int[] treasure_coord = {0, 0};
 
@@ -54,7 +56,7 @@ public class Main {
         System.out.println(2); // кротчайший путь всегда будет составлять 2 шага
     }
 
-    public static void task_4(Scanner in) {
+    public static void task_4() {
         int road = 0;
         int limit = 0;
         int roads_number = in.nextInt();
@@ -74,19 +76,38 @@ public class Main {
         System.out.printf("%d %d", road + 1, limit);
     }
 
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        System.out.println("1. Сиракузская последовательность");
-        task_1(in);
-        System.out.println("2. Сумма ряда");
-        task_2(in);
-        System.out.println("3. Ищем клад");
-        task_3(in);
-        System.out.println("4. Логистический максимин");
-        task_4(in);
-        System.out.println("5. Дважды четное число");
+    public static void task_5() {
         DoublyEvenNumber number = new DoublyEvenNumber();
         number.setNumber();
         System.out.println(number.isDoublyEven());
+    }
+
+    public static void main(String[] args) {
+        while (true) {
+            System.out.print("Введите номер задачи: ");
+            int task_number = in.nextInt();
+            switch (task_number) {
+                case 1 -> {
+                    System.out.println("1. Сиракузская последовательность");
+                    task_1();
+                }
+                case 2 -> {
+                    System.out.println("2. Сумма ряда");
+                    task_2();
+                }
+                case 3 -> {
+                    System.out.println("3. Ищем клад");
+                    task_3();
+                }
+                case 4 -> {
+                    System.out.println("4. Логистический максимин");
+                    task_4();
+                }
+                case 5 -> {
+                    System.out.println("5. Дважды четное число");
+                    task_5();
+                }
+            }
+        }
     }
 }
