@@ -1,14 +1,13 @@
 package Figures;
 import Board.Board;
 
-public class Knight extends Figure {
-    public Knight(char color, Board board) {
-        super("k", color, board);
+public class King extends Figure {
+    public King(char color, Board board) {
+        super("K", color, board);
     }
 
     private boolean way_is_clear(int row, int col, int row1, int col1) {
-        return  ((Math.abs(row1 - row) == 2 && Math.abs(col1 - col) == 1) ||
-                (Math.abs(row1 - row) == 1 && Math.abs(col1 - col) == 2));
+        return  Math.abs(row1 - row) == 1 && Math.abs(col1 - col) == 1;
     }
 
     @Override

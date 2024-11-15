@@ -2,7 +2,7 @@ package Figures;
 import Board.Board;
 public class Rook extends Figure {
     public Rook(char color, Board board) {
-        super("R", color, board);
+        super("r", color, board);
     }
 
     private boolean way_is_clear(int row, int col, int row1, int col1) {

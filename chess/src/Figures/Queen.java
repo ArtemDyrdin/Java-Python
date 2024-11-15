@@ -3,7 +3,7 @@ import Board.Board;
 
 public class Queen extends Figure {
     public Queen(char color, Board board) {
-        super("Q", color, board);
+        super("q", color, board);
     }
 
     private boolean way_is_clear(int row, int col, int row1, int col1) {

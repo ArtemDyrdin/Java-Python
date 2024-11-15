@@ -4,7 +4,7 @@ import Board.Board;
 public class Pawn extends Figure {
     private  boolean isFirstStep = true;
     public Pawn(char color, Board board) {
-        super("P", color, board);
+        super("p", color, board);
     }
 
     @Override

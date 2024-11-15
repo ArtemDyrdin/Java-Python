@@ -35,8 +35,8 @@ public class Board {
 //        this.fields[0][7] = new Rook('w', this);
 //        this.fields[7][0] = new Rook('b', this);
 //        this.fields[7][7] = new Rook('b', this);
-        this.fields[3][3] = new Knight('w', this);
-        this.fields[5][6] = new Knight('b', this);
+        this.fields[3][3] = new King('w', this);
+        this.fields[5][6] = new King('b', this);
     }
 
     public String getCell(int row, int col){

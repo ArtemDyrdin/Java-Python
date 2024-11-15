@@ -3,7 +3,7 @@ import Board.Board;
 
 public class Bishop extends Figure {
     public Bishop(char color, Board board) {
-        super("B", color, board);
+        super("b", color, board);
     }
 
     private boolean way_is_clear(int row, int col, int row1, int col1) {
