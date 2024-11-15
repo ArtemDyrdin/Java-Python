@@ -5,7 +5,7 @@ public class Rook extends Figure {
         super("R", color, board);
     }
 
-    public boolean way_is_clear(int row, int col, int row1, int col1) {
+    private boolean way_is_clear(int row, int col, int row1, int col1) {
         if (row == row1 || col == col1) {
             if (row == row1) {
                 int step = (col1 > col) ? 1 : -1;
