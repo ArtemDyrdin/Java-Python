@@ -1,9 +1,6 @@
 package Board;
 
-import Figures.Bishop;
-import Figures.Figure;
-import Figures.Pawn;
-import Figures.Rook;
+import Figures.*;
 
 public class Board {
 
@@ -38,8 +35,8 @@ public class Board {
 //        this.fields[0][7] = new Rook('w', this);
 //        this.fields[7][0] = new Rook('b', this);
 //        this.fields[7][7] = new Rook('b', this);
-        this.fields[3][3] = new Bishop('w', this);
-        this.fields[5][6] = new Pawn('b', this);
+        this.fields[3][3] = new Queen('w', this);
+        this.fields[5][6] = new Queen('b', this);
     }
 
     public String getCell(int row, int col){
