@@ -1,5 +1,8 @@
+package Board;
+
 import Figures.Figure;
 import Figures.Pawn;
+import Figures.Rook;
 
 public class Board {
 
@@ -19,13 +22,21 @@ public class Board {
 
     public void init(){
         this.fields[1] = new Figure[]{
-                new Pawn('w'), new Pawn('w'), new Pawn('w'), new Pawn('w'),
-                new Pawn('w'), new Pawn('w'), new Pawn('w'), new Pawn('w'),
+                new Pawn('w', this), new Pawn('w', this),
+                new Pawn('w', this), new Pawn('w', this),
+                new Pawn('w', this), new Pawn('w', this),
+                new Pawn('w', this), new Pawn('w', this),
         };
         this.fields[6] = new Figure[] {
-                new Pawn('b'), new Pawn('b'), new Pawn('b'), new Pawn('b'),
-                new Pawn('b'), new Pawn('b'), new Pawn('b'), new Pawn('b')
+                new Pawn('b', this), new Pawn('b', this),
+                new Pawn('b', this), new Pawn('b', this),
+                new Pawn('b', this), new Pawn('b', this),
+                new Pawn('b', this), new Pawn('b', this)
         };
+        this.fields[0][0] = new Rook('w', this);
+        this.fields[0][7] = new Rook('w', this);
+        this.fields[7][0] = new Rook('b', this);
+        this.fields[7][7] = new Rook('b', this);
     }
 
     public String getCell(int row, int col){
@@ -55,14 +66,11 @@ public class Board {
     public boolean move_figure(int row, int col, int row1, int col1){
       Figure figure = this.fields[row][col];
       if (figure != null) {
-          if (figure.canMove(row, col, row1, col1) &&
-                  this.fields[row1][col1] == null &&
-                  figure.getColor() == this.colorGame) {
+          if (figure.canMove(row, col, row1, col1) && figure.getColor() == this.colorGame) {
               this.fields[row1][col1] = figure;
               this.fields[row][col] = null;
               return true;
           } else if (figure.canAttack(row, col, row1, col1)
-                  && this.fields[row1][col1] != null
                   && this.fields[row1][col1].getColor() != this.fields[row][col].getColor()) {
               this.fields[row1][col1] = figure;
               this.fields[row][col] = null;

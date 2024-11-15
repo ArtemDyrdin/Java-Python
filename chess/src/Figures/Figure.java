@@ -1,12 +1,15 @@
 package Figures;
+import Board.Board;
 
 public abstract class Figure {
     private String name;
     private char color;
+    private final Board board;
 
-    public Figure(String name, char color){
+    public Figure(String name, char color, Board board){
         this.name = name;
         this.color = color;
+        this.board = board;
     }
 
     public String getName() {
@@ -21,6 +24,8 @@ public abstract class Figure {
         return color;
     }
 
+    public Board getBoard() { return board; }
+
     public void setColor(char color) {
         this.color = color;
     }
@@ -28,7 +33,7 @@ public abstract class Figure {
     public boolean canMove(int row, int col, int row1, int col1){
         return  (row >= 0 && row < 8) && (col >= 0 && col < 8) &&
                 (row1 >= 0 && row1 < 8) && (col1 >= 0 && col1 < 8) &&
-                (col != col1) && (row != row1);
+                ((col != col1) || (row != row1));
     }
 
     public boolean canAttack(int row, int col, int row1, int col1) {
