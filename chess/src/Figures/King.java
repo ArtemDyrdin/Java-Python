@@ -7,7 +7,8 @@ public class King extends Figure {
     }
 
     private boolean way_is_clear(int row, int col, int row1, int col1) {
-        return  Math.abs(row1 - row) == 1 && Math.abs(col1 - col) == 1;
+        return  (Math.abs(row1 - row) == 1 && Math.abs(col1 - col) <= 1) ||
+                (Math.abs(row1 - row) <= 1 && Math.abs(col1 - col) == 1);
     }
 
     @Override
