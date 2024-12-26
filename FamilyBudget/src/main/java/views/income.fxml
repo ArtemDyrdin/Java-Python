@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="main.java.controllers.ExpenseController" spacing="10" padding="10">
+    <Label text="Добавить доход"/>
+    <TextField fx:id="amountField" promptText="Сумма"/>
+    <ComboBox fx:id="familyMemberBox" promptText="Выберите члена семьи">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Мама"/>
+                <String fx:value="Папа"/>
+                <String fx:value="Ребенок"/>
+                <String fx:value="Другое"/>
+            </FXCollections>
+        </items>
+    </ComboBox>
+    <ComboBox fx:id="familyMemberIncomes" promptText="Выберите источник дохода">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Зарплата"/>
+                <String fx:value="Продажа"/>
+                <String fx:value="Подарок"/>
+                <String fx:value="Другое"/>
+            </FXCollections>
+        </items>
+    </ComboBox>
+    <DatePicker fx:id="datePicker" promptText="Выберите дату"/>
+    <Button text="Добавить" fx:id="submitButton"/>
+</VBox>
