@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="480.0" prefWidth="541.0" style="-fx-background-color: #FFFFE0;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
+   <children>
+      <AnchorPane prefHeight="481.0" prefWidth="131.0" style="-fx-background-color: #FFFACD;">
+         <children>
+            <Button fx:id="openMainPage" layoutX="19.0" layoutY="66.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" style="-fx-background-color: #FFE4B5;" text="Главная">
+               <font>
+                  <Font name="Georgia" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="openSettingPage" layoutX="19.0" layoutY="127.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" style="-fx-background-color: #FFE4B5;" text="Настроить">
+               <font>
+                  <Font name="Georgia" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Label layoutX="256.0" layoutY="14.0" text="Семейный бюджет">
+         <font>
+            <Font name="Georgia" size="18.0" />
+         </font>
+      </Label>
+      <Text layoutX="307.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Бюджет:">
+         <font>
+            <Font name="Georgia" size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="budgetDisplay" layoutX="310.0" layoutY="111.0" strokeWidth="0.0" text="0">
+         <font>
+            <Font name="Georgia" size="18.0" />
+         </font></Text>
+      <Text layoutX="201.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Цель на неделю:">
+         <font>
+            <Font name="Georgia" size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="weekDisplay" layoutX="368.0" layoutY="166.0" strokeWidth="0.0" text="0">
+         <font>
+            <Font name="Georgia" size="18.0" />
+         </font></Text>
+      <Text layoutX="368.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Цель на месяц:">
+         <font>
+            <Font name="Georgia" size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="monthDisplay" layoutX="201.0" layoutY="166.0" strokeWidth="0.0" text="0">
+         <font>
+            <Font name="Georgia" size="18.0" />
+         </font></Text>
+      <Button fx:id="openExpenceWindow" layoutX="288.0" layoutY="196.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" style="-fx-background-color: #FFE4B5;" text="Расход">
+         <font>
+            <Font name="Georgia" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="openIncomeWindow" layoutX="288.0" layoutY="241.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" style="-fx-background-color: #FFE4B5;" text="Доход">
+         <font>
+            <Font name="Georgia" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
