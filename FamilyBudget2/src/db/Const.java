@@ -40,4 +40,12 @@ public class Const {
         public static final String PERSONID = "idЧленаСемьи";
         public static final String DATE = "Дата";
     }
+
+    public static class Income {
+        public static final String INCOMETBL = "Доходы";
+        public static final String AMOUNT = "Сумма";
+        public static final String ORIGINID = "idИсточника";
+        public static final String PERSONID = "idЧленаСемьи";
+        public static final String DATE = "Дата";
+    }
 }

@@ -29,12 +29,39 @@ public class DatabaseHandler {
             prSt.setDate(4, java.sql.Date.valueOf(date));
 
             prSt.executeUpdate();
+            connection.close();
+    }
+
+    public void addIncome(int amount, String origin, String familyMember, LocalDate date) throws SQLException {
+        String insert = "INSERT INTO " + Const.Income.INCOMETBL + " (" + Const.Income.AMOUNT + ", "
+                + Const.Income.ORIGINID + ", " + Const.Income.PERSONID + ", " + Const.Income.DATE
+                + ") VALUES (?, ?, ?, ?)";
+        PreparedStatement prSt = getConnection().prepareStatement(insert);
+
+        prSt.setInt(1, amount);
+        prSt.setInt(2, getOriginId(origin));
+        prSt.setInt(3, getFamilyMemberId(familyMember));
+        prSt.setDate(4, java.sql.Date.valueOf(date));
+
+        prSt.executeUpdate();
+        connection.close();
     }
 
     private int getSphereId(String sphere) throws SQLException {
         String select = "SELECT id FROM " + Const.Expences.EXPENCETBL + " WHERE " + Const.Expences.EXPENCE + " = ?";
         PreparedStatement prSt = getConnection().prepareStatement(select);
         prSt.setString(1, sphere);
+        ResultSet rs = prSt.executeQuery();
+        if (rs.next()) {
+            return rs.getInt("id");
+        }
+        return -1;
+    }
+
+    private int getOriginId(String origin) throws SQLException {
+        String select = "SELECT id FROM " + Const.Income.INCOMETBL + " WHERE " + Const.Income.ORIGINID + " = ?";
+        PreparedStatement prSt = getConnection().prepareStatement(select);
+        prSt.setString(1, origin);
         ResultSet rs = prSt.executeQuery();
         if (rs.next()) {
             return rs.getInt("id");
@@ -59,6 +86,7 @@ public class DatabaseHandler {
         PreparedStatement prSt = getConnection().prepareStatement(insert);
         prSt.setString(1, Name);
         prSt.executeUpdate();
+        connection.close();
     }
 
     public void addOrigin(String Name) throws SQLException {
@@ -67,6 +95,7 @@ public class DatabaseHandler {
         PreparedStatement prSt = getConnection().prepareStatement(insert);
         prSt.setString(1, Name);
         prSt.executeUpdate();
+        connection.close();
     }
 
     public void addExpence(String Name) throws SQLException {
@@ -75,6 +104,7 @@ public class DatabaseHandler {
         PreparedStatement prSt = getConnection().prepareStatement(insert);
         prSt.setString(1, Name);
         prSt.executeUpdate();
+        connection.close();
     }
 
     public void setBudget(int amount) throws SQLException {
@@ -82,6 +112,7 @@ public class DatabaseHandler {
         PreparedStatement psSt = getConnection().prepareStatement(sett);
         psSt.setInt(1, amount);
         psSt.executeUpdate();
+        connection.close();
     }
 
     public void setWeek(int amount) throws SQLException {
@@ -89,6 +120,7 @@ public class DatabaseHandler {
         PreparedStatement psSt = getConnection().prepareStatement(sett);
         psSt.setInt(1, amount);
         psSt.executeUpdate();
+        connection.close();
     }
 
     public void setMonth(int amount) throws SQLException {
@@ -96,12 +128,14 @@ public class DatabaseHandler {
         PreparedStatement psSt = getConnection().prepareStatement(sett);
         psSt.setInt(1, amount);
         psSt.executeUpdate();
+        connection.close();
     }
 
     public ResultSet getPersons() throws SQLException {
         String select = "SELECT " + Const.Persons.NAME + " FROM " + Const.Persons.PERSONTBL;
         PreparedStatement prSt = getConnection().prepareStatement(select);
         ResultSet rs = prSt.executeQuery();
+//        connection.close();
         return rs;
     }
 
@@ -109,6 +143,7 @@ public class DatabaseHandler {
         String select = "SELECT " + Const.Origins.INCOME + " FROM " + Const.Origins.INCOMETBL;
         PreparedStatement prSt = getConnection().prepareStatement(select);
         ResultSet rs = prSt.executeQuery();
+//        connection.close();
         return rs;
     }
 
@@ -116,6 +151,7 @@ public class DatabaseHandler {
         String select = "SELECT " + Const.Expences.EXPENCE + " FROM " + Const.Expences.EXPENCETBL;
         PreparedStatement prSt = getConnection().prepareStatement(select);
         ResultSet rs = prSt.executeQuery();
+//        connection.close();
         return rs;
     }
 
@@ -160,6 +196,7 @@ public class DatabaseHandler {
         PreparedStatement prSt = getConnection().prepareStatement(delete);
         prSt.setString(1, name);
         prSt.executeUpdate();
+//        connection.close();
     }
 
     public void deleteOrigin(String name) throws SQLException {
@@ -167,6 +204,7 @@ public class DatabaseHandler {
         PreparedStatement prSt = getConnection().prepareStatement(delete);
         prSt.setString(1, name);
         prSt.executeUpdate();
+//        connection.close();
     }
 
     public void deleteExpence(String name) throws SQLException {
@@ -174,5 +212,6 @@ public class DatabaseHandler {
         PreparedStatement prSt = getConnection().prepareStatement(delete);
         prSt.setString(1, name);
         prSt.executeUpdate();
+//        connection.close();
     }
 }
