@@ -6,9 +6,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="480.0" prefWidth="541.0" style="-fx-background-color: #FFFFE0;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
+<AnchorPane prefHeight="480.0" prefWidth="541.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
    <children>
-      <AnchorPane prefHeight="481.0" prefWidth="131.0" style="-fx-background-color: #FFFACD;">
+      <AnchorPane prefHeight="481.0" prefWidth="131.0" style="-fx-background-color: #E5E4E2;">
          <children>
             <Button fx:id="openMainPage" layoutX="19.0" layoutY="66.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" style="-fx-background-color: #FFE4B5;" text="Главная">
                <font>
@@ -64,5 +64,25 @@
             <Font name="Georgia" size="14.0" />
          </font>
       </Button>
+      <Text layoutX="201.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Всего потрачено:">
+         <font>
+            <Font name="Georgia" size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="368.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Всего получено:">
+         <font>
+            <Font name="Georgia" size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="expenceEver" layoutX="206.0" layoutY="335.0" strokeWidth="0.0" text="0">
+         <font>
+            <Font name="Georgia" size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="incomeEver" layoutX="373.0" layoutY="335.0" strokeWidth="0.0" text="0">
+         <font>
+            <Font name="Georgia" size="18.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

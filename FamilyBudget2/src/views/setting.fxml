@@ -11,9 +11,9 @@
 
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TableColumn?>
-<AnchorPane prefHeight="480.0" prefWidth="541.0" style="-fx-background-color: #FFFFE0;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SettingController">
+<AnchorPane prefHeight="480.0" prefWidth="541.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SettingController">
     <children>
-        <AnchorPane prefHeight="481.0" prefWidth="131.0" style="-fx-background-color: #FFFACD;">
+        <AnchorPane prefHeight="481.0" prefWidth="131.0" style="-fx-background-color: #FFF;">
             <children>
                 <Button fx:id="openMainPage" layoutX="19.0" layoutY="66.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" style="-fx-background-color: #FFE4B5;" text="Главная">
                     <font>

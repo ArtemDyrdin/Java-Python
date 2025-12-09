@@ -21,6 +21,10 @@ public class MainController {
     public Text weekDisplay;
     @FXML
     public Text monthDisplay;
+    @FXML
+    public Text expenceEver;
+    @FXML
+    public Text incomeEver;
 
     @FXML
     private Button openExpenceWindow;
@@ -32,12 +36,13 @@ public class MainController {
     private Button openSettingPage;
 
     @FXML
-    void initialize() throws SQLException {
+    void initialize() throws Exception {
         DatabaseHandler dbHandler = new DatabaseHandler();
 
         updateBudgetDisplay(dbHandler);
         updateWeekDisplay(dbHandler);
         updateMonthDisplay(dbHandler);
+        updateFinancialData(dbHandler);
 
         // страница настроек
         openSettingPage.setOnAction(actionEvent -> {
@@ -88,17 +93,27 @@ public class MainController {
         });
     }
 
+    // обновление показателя бюджета
     private void updateBudgetDisplay(DatabaseHandler dbHandler) throws SQLException {
         int budgett = dbHandler.getBudget();
         budgetDisplay.setText(String.valueOf(budgett));
     }
+    // обновление показателя недельной цели
     private void updateWeekDisplay(DatabaseHandler dbHandler) throws SQLException {
         int week = dbHandler.getWeek();
         weekDisplay.setText(String.valueOf(week));
     }
+    // обновление показателя месячной цели
     private void updateMonthDisplay(DatabaseHandler dbHandler) throws SQLException {
         int month = dbHandler.getMonth();
         monthDisplay.setText(String.valueOf(month));
+    }
+    // обновление показателей расходов и доходов
+    private void updateFinancialData(DatabaseHandler dbHandler) throws Exception {
+        int totalIncome = dbHandler.getTotalIncome();
+        int totalExpenses = dbHandler.getTotalExpenses();
+        incomeEver.setText(String.valueOf(totalIncome));
+        expenceEver.setText(String.valueOf(totalExpenses));
     }
 
 }
